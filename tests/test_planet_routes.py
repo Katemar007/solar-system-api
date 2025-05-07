@@ -31,7 +31,7 @@ def test_get_one_planet_no_data(client):
     # Assert
     assert response.status_code == 404
     assert response_body == {
-        'message': 'Planet with id 1 does not exist'
+        'message': 'Planet 1 not found'
     }
 
 def test_create_one_planet(client):

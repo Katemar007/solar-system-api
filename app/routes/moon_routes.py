@@ -32,33 +32,11 @@ def get_all_planet_moons(planet_id):
     return moons
 
 
-# @bp.get("/<planet_id>")
-# def get_one_planet(planet_id):
-#     planet = validate_model(Planet, planet_id)
-    
-#     return planet.to_dict()
+@bp.delete("/<moon_id>")
+def delete_moon(moon_id):
+    moon = validate_model(Moon, moon_id)
 
+    db.session.delete(moon)
+    db.session.commit()
 
-# #Wave 4
-# @bp.put("/<planet_id>")
-# def update_one_planet(planet_id):
-#     planet = validate_model(Planet, planet_id)
-#     request_body = request.get_json()
-    
-#     planet.name = request_body["name"]
-#     planet.description = request_body["description"]
-#     planet.habitable = request_body["habitable"]
-#     db.session.commit()
-
-#     return Response(status=204, mimetype ="application/json")
-
-# #Wave 4
-# @bp.delete("/<planet_id>")
-# def delete_one_planet(planet_id):
-#     planet = validate_model(Planet, planet_id)
-
-#     db.session.delete(planet)
-#     db.session.commit()
-
-#     return Response(status=204, mimetype ="application/json")
-    
+    return Response(status=204, mimetype ="application/json")

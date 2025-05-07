@@ -4,6 +4,10 @@ from .models import planet, moon
 from .routes.planet_routes import bp as planets_bp
 from .routes.moon_routes import bp as moons_bp
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 def create_app(config=None):
     app = Flask(__name__)
